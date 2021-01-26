@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ET</title>
+	<!-- css inclusion -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+     <!-- font awesome inclusion -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+     <!-- google fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+<div class="container">
+	<div class="navbar">
+	<h2 class="brand">BRANDING</h2>
+	<a href=""><img class="menuPic" src="{% static 'menu2.png' %}"></a>
+	</div>
+
+	<video src="{% static 'books.mp4' %}" muted loop autoplay></video>
+	<div id="section">
+		<h1>WHAT'S UP BUDDY</h1>
+		<h2>PROBLEM SOLVED</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat.</p>
+	</div>
+	{% if not user.is_authenticated %}
+	<div class="button">
+		<a href="{% url 'login' %}" class="btn">LOG IN</a>
+    </div>
+    <div class="button">
+		<a href="{% url 'signup' %}" class="btn">SIGN UP</a>
+	</div>
+ 
+	{% endif %}
+	{% if user.is_authenticated %}
+	<div class="button">
+		<a href="{% url 'logout' %}" class="btn">LOG OUT</a>
+	</div>
+	<div class="button">
+		<a href="{% url 'result' user.email %}">Result</a>
+	</div>
+	<div class="button">
+		<a href="{% url 'mess' user.email %}">Mess</a>
+	</div>
+	{% endif %}
+	<div class="button">
+		<a href="{% url 'calendar' %}" class="btn">CALENDAR</a>
+	</div>
+    {% block content %}
+    {% endblock %}
+ 
+     <div id="footer">
+     	<a href=""><i class="fab fa-facebook-square fa-2x"></i></a>
+        <a href=""><i class="fab fa-instagram-square fa-2x"></i></a>
+        <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
+        <a href=""><i class="fab fa-linkedin fa-2x"></i></a>
+        <p>&copy; Copyright 2021</p>
+     </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="{% static 'javascript/script.js' %}" type="text/javascript"></script>
+</body>
+</html>
