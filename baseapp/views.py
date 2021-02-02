@@ -12,7 +12,12 @@ def result(request, email):
     print(user_roll)
     url = "https://nithp.herokuapp.com/api/result/student/{roll}"
     data = requests.get(url.format(roll=user_roll)).json()
-    return render(request, "baseapp/result.html", {'data':data})
+    dictionary = {}
+    for res in data['result']:
+        if res['sem'] not in dictionary:
+            dictionary[res['sem']] = []
+        dictionary[res['sem']].append([res['grade'],res['sub_gp'],res['sub_point'],res['subject'],res['subject_code']]) 
+    return render(request, "baseapp/result.html", {'data':dictionary, 'whole_data':data['summary']})
 
 def mess(request, email):
     roll_first_two = int(email[0:2])
