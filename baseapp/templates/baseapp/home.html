@@ -76,14 +76,14 @@
         <a href="{% url 'logout' %}" class="btn">LOG OUT</a>
       </div>
       <div class="button">
-        <a href="{% url 'result' user.email %}">Result</a>
+        <a href="{% url 'result' user.email %}" class="btn">Result</a>
       </div>
       <div class="button">
-        <a href="{% url 'mess' user.email %}">Mess</a>
+        <a href="{% url 'mess' user.email %}" class="btn">Mess</a>
       </div>
       {% endif %}
       <div class="button">
-        <a href="{% url 'calendar' %}" class="btn">CALENDAR</a>
+        <a href="{% url 'newsfeed' %}" class="btn">CALENDAR</a>
       </div>
       {% block content %}
       {% endblock %}

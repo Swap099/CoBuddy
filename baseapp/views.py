@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 from .models import Mess,Event
+from django.utils import timezone
 
 # Create your views here.
 
@@ -24,5 +25,6 @@ def mess(request, email):
     mess_data = Mess.objects.get(roll_starts_with=roll_first_two)
     return render(request, 'baseapp/mess.html', {'mess_data':mess_data})
 
-def CalendarView(request):
-    return render(request, 'baseapp/calendar.html')
+def newsfeed(request):
+    posts = Event.objects.filter()[::-1]
+    return render(request, 'baseapp/newsfeed.html', {'posts':posts})
