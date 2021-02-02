@@ -21,6 +21,7 @@ def sign_up(request):
     context = {}
     form = Register(request.POST or None)
     if request.method == "POST":
+        print("Hereeeeeeeeeeeeeeeeeeeeee")
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
@@ -42,6 +43,8 @@ def sign_up(request):
                 )
             email.send(fail_silently=False)
             return HttpResponse("Verify Your Mail")
+        else:
+            print("invalidddddddddd")
     context['form']=form
     return render(request,'registration/sign_up.html',context)
 

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'baseapp',
     'account',
     'crispy_forms',
+    'widget_tweaks',
 ]
 
 AUTH_USER_MODEL = 'account.User'
@@ -124,7 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'baseapp/static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+   BASE_DIR/'static',
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'baseapp/media')
