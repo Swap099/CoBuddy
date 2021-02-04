@@ -74,6 +74,10 @@
        	<label class="entry">Enter Password :</label><br>
          <!--<input class="boxes" type="Password" name="pass" placeholder="Enter Password">-->
          {{ form.password|add_class:"boxes"}}<br>
+	
+	       /* Forgot link added*/      
+	 <a class="forgot" href="">Forgot password ?</a>
+	       
          <button type="submit" class="submit" value="login">LOG IN</button>
          <input type="hidden" name="next" value="{{ next }}" />
        </form>
