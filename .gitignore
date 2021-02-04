@@ -1,6 +1,4 @@
 /.env
 /db.sqlite3
 /myvenv
-*.pyc
-*~
 __pycache__

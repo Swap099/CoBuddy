@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('baseapp.urls')),
+    path('',include('pwa.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('account.urls')),
     path('activate/<uidb64>/<token>/',activate, name='activate'),
